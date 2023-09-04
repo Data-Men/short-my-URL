@@ -1,9 +1,9 @@
 import { Router } from "express";
-
+import { createShortUrl, redirect } from "./../controller/shortUrl.controller";
 const route = Router()
 
-route.get('/:shortUrl', () => { })
+route.post('/', createShortUrl)
 
-route.post('/', () => { })
+route.get('/:shortUrl', redirect)
 
 export default route

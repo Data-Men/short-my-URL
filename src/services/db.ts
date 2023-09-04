@@ -1,7 +1,6 @@
-import { createConnection } from "mongoose";
+import { Pool } from "pg";
+import { dbConfig } from "./../config";
 
-export default createConnection("mongodb://127.0.0.1:27017/test", {
-    maxPoolSize: 100,
-    dbName: "test",
-    tls: true
-})
+const pool = new Pool(dbConfig.db);
+
+export default pool
