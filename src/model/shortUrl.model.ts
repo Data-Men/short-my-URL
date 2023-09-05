@@ -11,7 +11,7 @@ interface IShortUrl {
 }
 
 type TShortUrl = {
-    id: BigInt,
+    id: bigint,
     long_url: string,
 }
 
@@ -26,16 +26,16 @@ class ShortUrl implements IShortUrl {
             throw new Error("some error in your code");
         }
     }
-    async getLongUrl(id: BigInt): Promise<string> {
+    async getLongUrl(id: bigint): Promise<string> {
         try {
             const { rows } = await pool.query('SELECT long_url FROM "private".short_url WHERE id=$1', [id]);
             return rows[0].long_url;
-        } catch (error) {
+        } catch (error) { 
             console.log(error);
             throw new Error("could not get short url");
         }
     }
-    async getMatric(id: BigInt): Promise<{ longUrl: string; useCount: number; }> {
+    async getMatric(id: bigint): Promise<{ longUrl: string; useCount: number; }> {
         try {
             const { rows } = await pool.query("INSET INTO short_url() VALUES ");
             return rows[0]

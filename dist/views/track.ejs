@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+        <title>Track URL - Your Short URL Site</title>
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/header') %>
+    </header>
+    <main>
+        <div class="container">
+            <h2>Enter Short URL to Track</h2>
+            <div class="flex-container">
+                <input type="text" id="shortUrlInput">
+                <button id="trackButton">Track</button>
+            </div>
+            <div id="visitCount" style="visibility: hidden;"></div>
+        </div>
+    </main>
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
+</body>
+
+</html>
