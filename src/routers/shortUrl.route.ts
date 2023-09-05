@@ -1,9 +1,11 @@
 import { Router } from "express";
-import { createShortUrl, redirect } from "./../controller/shortUrl.controller";
+import { createShortUrl, redirect, matric } from "./../controller/shortUrl.controller";
 const route = Router()
 
-route.post('/api/', createShortUrl)
+route.post('/', createShortUrl);
 
-route.get('/api/:shortUrl', redirect)
+route.post('/matric', matric);
+
+route.get('/:shortUrl', redirect);
 
 export default route

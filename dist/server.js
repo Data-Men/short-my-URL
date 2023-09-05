@@ -31,6 +31,7 @@ dotenv_1.default.config();
 const express_1 = __importStar(require("express"));
 const app = (0, express_1.default)();
 const shortUrl_route_1 = __importDefault(require("./routers/shortUrl.route"));
+const errorHandler_1 = require("./middlewares/errorHandler");
 //parsing request
 app.use(express_1.default.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
@@ -38,6 +39,9 @@ app.use((0, express_1.json)());
 app.use((0, express_1.urlencoded)({
     extended: true,
 }));
+app.get('/', (req, res, next) => {
+    res.render(__dirname + '/views/home');
+});
 app.get('/home', (req, res, next) => {
     res.render(__dirname + '/views/home');
 });
@@ -47,11 +51,8 @@ app.get('/about', (req, res, next) => {
 app.get('/track', (req, res, next) => {
     res.render(__dirname + '/views/track');
 });
-app.use(shortUrl_route_1.default);
-// app.use((err, req, res, next) => {
-//     console.error(err.stack)
-//     res.status(500).send('Something broke!')
-// })
+app.use("/api", shortUrl_route_1.default);
+app.use(errorHandler_1.errorHandler);
 app.listen(process.env.PORT, () => {
     console.log("Server is litstening at Port:", process.env.PORT);
 });

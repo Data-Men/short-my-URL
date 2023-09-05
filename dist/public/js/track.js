@@ -2,7 +2,7 @@
 const trackBtn = async () => {
     showLoader()
     const postData = {
-        longUrl: document.getElementById("longUrl").value,
+        shortUrl: document.getElementById("shortUrl").value,
     };
 
     const requestOptions = {
@@ -13,14 +13,15 @@ const trackBtn = async () => {
         body: JSON.stringify(postData)
     };
     try {
-        const response = await fetch("/api/", requestOptions)
-        if (response.status == 201) {
+        const response = await fetch("/api/matric", requestOptions)
+        if (response.status == 200) {
             const res = await response.json();
             console.log(res);
             document.getElementById("containe1").style.display = 'none';
             document.getElementById("containe2").style.display = 'flex';
-            document.getElementById('longUrl1').value = document.getElementById("longUrl").value;
-            document.getElementById("shortUrl").value = res.data.ShortUrl
+            document.getElementById('longUrl').value = res.data.longUrl;
+            document.getElementById("shortUrl1").value = res.data.shortUrl;
+            document.getElementById("count").textContent =`Visits: ${res.data.visitCount}`;
         } else {
             console.log(response);
         }
@@ -38,8 +39,4 @@ function showLoader() {
 // Hide the loader
 function hideLoader() {
     document.querySelector('.loader-wrapper').style.display = 'none';
-}
-
-function reload() {
-    window.location.reload()
 }

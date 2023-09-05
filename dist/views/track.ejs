@@ -3,7 +3,8 @@
 
 <head>
     <%- include('./partials/head') %>
-        <link rel="stylesheet" type="text/css" href="/css/home.css">
+        <link rel="stylesheet" type="text/css" href="/css/track.css">
+        <script src="/js/track.js" type="text/javascript"></script>
         <title>Track URL </title>
 </head>
 
@@ -13,10 +14,10 @@
     </header>
     <main>
         <div class="container" id="containe1">
-            <h2>Enter Short URL to Track</h2>
+            <h2 style="text-align: center;">Enter Short URL to Track</h2>
             <div class="flex-container">
-                <input type="text" id="shortUrl">
-                <button id="trackButton">Track</button>
+                <input type="text" id="shortUrl" placeholder="Enter Short Url">
+                <button onclick="trackBtn()" id="trackButton">Track</button>
             </div>
             <div id="visitCount" style="visibility: hidden;"></div>
         </div>
@@ -25,12 +26,11 @@
         </div>
         <div class="containe" id="containe2">
             <div class="container child">
-                <h3 style=" font-size: large;color: #000000;">Shorten a long URL</h3>
+                <h2 style="text-align: center;color: #000000;">Track</h2>
                 <div class="flex-container">
-                    <input type="text" id="longUrl1">
-                    <input type="text" id="shortUrl">
-                    <h3>Visitor:</h3>
-                    <button type="submit" onclick="reload()" id="reloadBtn">Short More</button>
+                    <input type="text" id="longUrl">
+                    <input type="text" id="shortUrl1">
+                    <h1 id="count"></h1>
                 </div>
             </div>
         </div>

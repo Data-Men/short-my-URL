@@ -7,5 +7,5 @@ CREATE TABLE IF NOT EXISTS "private".short_url (
 CREATE TABLE IF NOT EXISTS "private".matric(
     id BIGSERIAL PRIMARY KEY,
     url_id BIGINT REFERENCES "private".short_url(id) NOT NULL,
-    use_count SERIAL NOT NULL
+    use_count INT NOT NULL DEFAULT(0)
 );
