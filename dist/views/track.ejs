@@ -3,7 +3,8 @@
 
 <head>
     <%- include('./partials/head') %>
-        <title>Track URL - Your Short URL Site</title>
+        <link rel="stylesheet" type="text/css" href="/css/home.css">
+        <title>Track URL </title>
 </head>
 
 <body>
@@ -11,13 +12,27 @@
         <%- include('./partials/header') %>
     </header>
     <main>
-        <div class="container">
+        <div class="container" id="containe1">
             <h2>Enter Short URL to Track</h2>
             <div class="flex-container">
-                <input type="text" id="shortUrlInput">
+                <input type="text" id="shortUrl">
                 <button id="trackButton">Track</button>
             </div>
             <div id="visitCount" style="visibility: hidden;"></div>
+        </div>
+        <div class="loader-wrapper">
+            <div class="loader"></div>
+        </div>
+        <div class="containe" id="containe2">
+            <div class="container child">
+                <h3 style=" font-size: large;color: #000000;">Shorten a long URL</h3>
+                <div class="flex-container">
+                    <input type="text" id="longUrl1">
+                    <input type="text" id="shortUrl">
+                    <h3>Visitor:</h3>
+                    <button type="submit" onclick="reload()" id="reloadBtn">Short More</button>
+                </div>
+            </div>
         </div>
     </main>
     <footer>

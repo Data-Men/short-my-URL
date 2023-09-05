@@ -1,0 +1,19 @@
+input {
+    height: 30px;
+    width: 300px;
+    margin: 10px;
+    font-size: large;
+    color: #004e64;
+    margin-bottom: 30px;
+}
+
+button {
+    height: 30px;
+    width: 250px;
+    font-size: large;
+    background-color: #5e787f;
+}
+
+button:hover {
+    background-color: #426b76;
+}

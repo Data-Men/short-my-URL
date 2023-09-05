@@ -1,5 +1,5 @@
 
-const BtnClick = async () => {
+const trackBtn = async () => {
     showLoader()
     const postData = {
         longUrl: document.getElementById("longUrl").value,

@@ -16,7 +16,7 @@ async function createShortUrl(req, res, next) {
         responseObj = {
             message: "success",
             data: {
-                "ShortUrl": `127.0.0.1:8080/${(0, baseConversion_1.base10To62)(BigInt(base10Number))}`,
+                "ShortUrl": `${req.protocol}://${req.headers.host}/api/${(0, baseConversion_1.base10To62)(BigInt(base10Number))}`,
             },
             errors: [{}]
         };
@@ -31,7 +31,10 @@ async function redirect(req, res, next) {
     try {
         const { shortUrl } = req.params;
         const id = (0, baseConversion_1.base62To10)(shortUrl);
-        const long_url = await shortUrlModal.getLongUrl(id);
+        let long_url = await shortUrlModal.getLongUrl(id);
+        if (!long_url.startsWith("http")) {
+            long_url = "http://" + long_url;
+        }
         res.status(http_status_codes_1.default.MOVED_TEMPORARILY).redirect(long_url);
     }
     catch (error) {

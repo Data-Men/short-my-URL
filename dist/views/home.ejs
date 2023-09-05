@@ -4,6 +4,7 @@
 <head>
     <%- include('./partials/head'); %>
         <title>Short Url</title>
+        <link rel="stylesheet" type="text/css" href="/css/home.css">
         <script src="/js/home.js" type="text/javascript"></script>
 </head>
 
@@ -12,12 +13,25 @@
         <%- include('./partials/header'); %>
     </header>
     <main>
-        <div class="container">
-            <div>
+        <div class="containe" id="containe1">
+            <div class="container child">
                 <h3 style=" font-size: large;color: #000000;">Shorten a long URL</h3>
                 <div class="flex-container">
                     <input type="text" placeholder="Enter long link here" id="longUrl">
                     <button type="submit" onclick="BtnClick()" id="submitBtn">Shorten URL</button>
+                </div>
+            </div>
+        </div>
+        <div class="loader-wrapper">
+            <div class="loader"></div>
+        </div>
+        <div class="containe" id="containe2">
+            <div class="container child">
+                <h3 style=" font-size: large;color: #000000;">Shorten a long URL</h3>
+                <div class="flex-container">
+                    <input type="text" id="longUrl1" readonly>
+                    <input type="text" id="shortUrl" readonly>
+                    <button type="submit" onclick="reload()" id="reloadBtn">Short More</button>
                 </div>
             </div>
         </div>
