@@ -6,6 +6,4 @@ route.post('/', createShortUrl);
 
 route.post('/matric', matric);
 
-route.get('/:shortUrl', redirect);
-
 export default route

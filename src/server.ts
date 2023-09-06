@@ -5,6 +5,7 @@ import express, { NextFunction, json, urlencoded } from 'express';
 const app = express();
 import shortUrl from "./routers/shortUrl.route";
 import {errorHandler} from "./middlewares/errorHandler";
+import { redirect } from "./controller/shortUrl.controller";
 
 //parsing request
 app.use(express.static(__dirname + '/public'));
@@ -27,6 +28,7 @@ app.get('/about', (req, res, next) => {
 app.get('/track', (req, res, next) => {
     res.render(__dirname + '/views/track');
 })
+app.get('/:shortUrl', redirect);
 app.use("/api", shortUrl);
 
 app.use(errorHandler);

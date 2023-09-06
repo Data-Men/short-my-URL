@@ -17,7 +17,7 @@ async function createShortUrl(req, res, next) {
             responseObj = {
                 message: "success",
                 data: {
-                    "ShortUrl": `${req.protocol}://${req.headers.host}/api/${(0, baseConversion_1.base10To62)(BigInt(base10Number))}`,
+                    "ShortUrl": `${req.protocol}://${req.headers.host}/${(0, baseConversion_1.base10To62)(BigInt(base10Number))}`,
                 },
                 errors: [{}]
             };

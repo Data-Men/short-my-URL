@@ -18,7 +18,7 @@ export async function createShortUrl(req: Request, res: Response, next: NextFunc
             responseObj = {
                 message: "success",
                 data: {
-                    "ShortUrl": `${req.protocol}://${req.headers.host}/api/${base10To62(BigInt(base10Number))}`,
+                    "ShortUrl": `${req.protocol}://${req.headers.host}/${base10To62(BigInt(base10Number))}`,
                 },
                 errors: [{}]
             }
